@@ -2,7 +2,9 @@ FROM python:3.7-slim AS python_env
 
 WORKDIR /src
 RUN apt update ;\
-    apt install -y --no-install-recommends python3-virtualenv python-dev build-essential
+    apt install -y --no-install-recommends python3-virtualenv ;\
+    apt install -y --no-install-recommends python-dev ;\
+    apt install -y --no-install-recommends build-essential ;
     
 ENV VIRTUAL_ENV="/opt/venv"
 ENV PATH="/opt/venv/bin:$PATH"

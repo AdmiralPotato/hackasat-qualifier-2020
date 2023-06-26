@@ -2,8 +2,17 @@ FROM python:3.7-slim AS builder
 
 WORKDIR /src
 RUN apt update ;\
-    apt install -y --no-install-recommends python3-virtualenv python-dev build-essential \
-                        gcc curl libssl-dev sqlite libsqlite3-dev make ca-certificates pkg-config
+    apt install -y --no-install-recommends python3-virtualenv ;\
+    apt install -y --no-install-recommends python-dev ;\
+    apt install -y --no-install-recommends build-essential ;\
+    apt install -y --no-install-recommends gcc ;\
+    apt install -y --no-install-recommends curl ;\
+    apt install -y --no-install-recommends libssl-dev ;\
+    apt install -y --no-install-recommends sqlite3 ;\
+    apt install -y --no-install-recommends libsqlite3-dev ;\
+    apt install -y --no-install-recommends make ;\
+    apt install -y --no-install-recommends ca-certificates ;\
+    apt install -y --no-install-recommends pkg-config ;
 
 ENV VIRTUAL_ENV="/opt/venv"
 ENV PATH="/opt/venv/bin:$PATH"
